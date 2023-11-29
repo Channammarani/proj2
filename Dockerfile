@@ -1,6 +1,6 @@
-FROM nginx:latest
-MAINTAINER csbi1995itorizon@gmail.com
-COPY app.conf /etc/nginx/conf.d/app.conf
-COPY html/* /usr/share/nginx/html
+FROM centos:latest
+MAINTAINER name at sdlc
+RUN yum -y install httpd
+COPY index.html /var/www/html/
+CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
